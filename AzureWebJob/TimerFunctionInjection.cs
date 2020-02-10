@@ -13,7 +13,7 @@ namespace AzureWebJobDependencyInjection
             _test = test;
         }
 
-        public void ProcessTimerInjected([TimerTrigger("*/35 * * * * *")] TimerInfo myTimer, TextWriter log)
+        public void ProcessTimerInjected([TimerTrigger("%CronTimerFunctionInjection%")] TimerInfo myTimer, TextWriter log)
         {
             log.WriteLine(_test.Get());
             log.WriteLine(myTimer.ScheduleStatus);
